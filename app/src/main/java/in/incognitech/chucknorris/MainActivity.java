@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements JSONListener, Ima
         TextView quote = (TextView) findViewById(R.id.quote);
         try {
             JSONObject value = jsonObject.getJSONObject("value");
-            quote.setText(StringEscapeUtils.escapeHtml4(value.getString("joke")));
+            quote.setText(StringEscapeUtils.unescapeHtml4(value.getString("joke")));
         } catch (JSONException e) {
             Log.d(TAG, "Error in JSON");
         }
